@@ -10,12 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Created by shandj on 22/06/2017.
  */
 
-public class hook extends BaseUtil {
+public class Hook extends BaseUtil {
 
     private BaseUtil base;
 
-    public hook(BaseUtil base) {
-
+    public Hook(BaseUtil base) {
         this.base = base;
     }
 

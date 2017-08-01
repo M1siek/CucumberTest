@@ -2,51 +2,51 @@ package Steps.FrontPage;
 
 import Base.BaseUtil;
 import Pages.FrontPagePage;
-import cucumber.api.java8.En;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import junit.framework.Assert;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
-public class SearchForSteps extends BaseUtil implements En {
+public class SearchForSteps extends BaseUtil {
 
     private BaseUtil base;
-    private FrontPagePage frontPagePage;
+    private FrontPagePage fpp;
 
     public SearchForSteps(BaseUtil base) {
-
         this.base = base;
-        frontPagePage = new FrontPagePage(base.driver);
+    }
 
-        Given("^I navigate to ([^\"]*)$", (String url) -> {
-            url = baseURL;
-            try {
-                base.driver.get(url);
-            } catch (NoSuchElementException e) {
-                Assert.fail("URL not found");
-            }
-        });
+    @Given("^I navigate to Google$")
+    public void iNavigateToGoogle() throws Throwable {
+        try {
+            base.driver.get(baseURL);
+        } catch (NoSuchElementException e) {
+            Assert.fail("URL not found");
+        }
+    }
 
-        Then("^I should be navigated to ([^\"]*)$", (String url) -> {
-            url = baseURL;
-            try {
-                base.driver.getCurrentUrl().equals(url);
-            } catch (NoSuchElementException e) {
-                Assert.fail("Incorrect URL");
-            }
-        });
+    @Then("^I should be navigated to Google$")
+    public void iShouldBeNavigatedToGoogle() throws Throwable {
+        fpp.iShouldSeeURL(baseURL);
+    }
 
-        Given("^I enter ([^\"]*)$", (String str0) -> {
-            frontPagePage.iEnterString(str0);
-        });
+    @Given("^I enter nothing$")
+    public void iEnterNothing() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
-        When("^I press Search button$", () -> {
-            frontPagePage.iPressSearchButton();
-        });
+    @When("^I press Search button$")
+    public void iPressSearchButton() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 
-        Then("^I should see search results$", () -> {
-            System.out.println(frontPagePage.iShouldSeeSearchResult());
-        });
-
+    @Then("^I should see search results$")
+    public void iShouldSeeSearchResults() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

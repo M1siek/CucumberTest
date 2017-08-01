@@ -8,11 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class FrontPagePage extends BaseUtil {
 
-    public FrontPagePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    private BaseUtil base;
+
+    public FrontPagePage(BaseUtil base) {
+        this.base = base;
     }
 
     @FindBy(how = How.XPATH, using = ".//*[@id='gs_htif0']")
@@ -21,22 +24,22 @@ public class FrontPagePage extends BaseUtil {
     @FindBy(how = How.XPATH, using = ".//*[@id='tsf']/div[2]/div[3]/center/input[1]")
     public WebElement searchButton;
 
-//    public void iNavigateToURL(String url) {
-//        url = baseURL;
-//        try {
-//            driver.get(url);
-//        } catch (NoSuchElementException e) {
-//            Assert.fail("URL not found");
-//        }
-//    }
+    public void iNavigateToURL(String url) {
+        url = baseURL;
+        try {
+            driver.get(url);
+        } catch (NoSuchElementException e) {
+            Assert.fail("URL not found");
+        }
+    }
 
-//    public void iShouldSeeURL(String url) {
-//        try {
-//            driver.getCurrentUrl().equals(url);
-//        } catch (NoSuchElementException e) {
-//            Assert.fail("Incorrect URL");
-//        }
-//    }
+    public void iShouldSeeURL(String url) {
+        try {
+            driver.getCurrentUrl().equals(url);
+        } catch (NoSuchElementException e) {
+            Assert.fail("Incorrect URL");
+        }
+    }
 
     public void iEnterString(String word) {
         try {
