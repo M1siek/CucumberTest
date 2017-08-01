@@ -12,11 +12,14 @@ import org.openqa.selenium.NoSuchElementException;
 public class SearchForSteps extends BaseUtil {
 
     private BaseUtil base;
-    private FrontPagePage fpp;
+//    private FrontPagePage fpp;
 
     public SearchForSteps(BaseUtil base) {
         this.base = base;
     }
+
+    private FrontPagePage fpp = new FrontPagePage(this.base);
+    // TU MUSI BYC COS NIE TAK!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     @Given("^I navigate to Google$")
     public void iNavigateToGoogle() throws Throwable {

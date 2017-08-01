@@ -27,18 +27,20 @@ public class FrontPagePage extends BaseUtil {
     public void iNavigateToURL(String url) {
         url = baseURL;
         try {
-            driver.get(url);
+            base.driver.get(url);
         } catch (NoSuchElementException e) {
             Assert.fail("URL not found");
         }
     }
 
     public void iShouldSeeURL(String url) {
-        try {
-            driver.getCurrentUrl().equals(url);
-        } catch (NoSuchElementException e) {
-            Assert.fail("Incorrect URL");
-        }
+
+        System.out.println(base.driver.getCurrentUrl());
+//        try {
+//            driver.getCurrentUrl().equals(url);
+//        } catch (NoSuchElementException e) {
+//            Assert.fail("Incorrect URL");
+//        }
     }
 
     public void iEnterString(String word) {
