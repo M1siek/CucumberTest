@@ -11,15 +11,14 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class SearchForSteps extends BaseUtil {
 
+    private FrontPagePage frontPagePage;
     private BaseUtil base;
 //    private FrontPagePage fpp;
 
     public SearchForSteps(BaseUtil base) {
         this.base = base;
+        frontPagePage = new FrontPagePage(this.base);
     }
-
-    private FrontPagePage fpp = new FrontPagePage(this.base);
-    // TU MUSI BYC COS NIE TAK!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     @Given("^I navigate to Google$")
     public void iNavigateToGoogle() throws Throwable {
@@ -32,7 +31,7 @@ public class SearchForSteps extends BaseUtil {
 
     @Then("^I should be navigated to Google$")
     public void iShouldBeNavigatedToGoogle() throws Throwable {
-        fpp.iShouldSeeURL(baseURL);
+        frontPagePage.iShouldSeeURL(baseURL);
     }
 
     @Given("^I enter nothing$")
